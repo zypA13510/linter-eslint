@@ -1,0 +1,6 @@
+{
+  "name": "yarn-pnpify",
+  "devDependencies": {
+    "eslint": "0.0.0"
+  }
+}

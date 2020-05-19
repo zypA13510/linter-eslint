@@ -75,6 +75,12 @@ describe('Worker Helpers', () => {
   describe('getESLintInstance && getESLintFromDirectory', () => {
     const pathPart = Path.join('testing', 'eslint', 'node_modules')
 
+    it('tries to use yarn plug-n-play if detected', () => {
+      const config = createConfig()
+      const eslint = Helpers.getESLintInstance(getFixturesPath('yarn-pnpify'), config)
+      expect(eslint).toBe('located')
+    })
+
     it('tries to find an indirect local eslint using an absolute path', () => {
       const path = Path.join(getFixturesPath('indirect-local-eslint'), pathPart)
       const config = createConfig({
